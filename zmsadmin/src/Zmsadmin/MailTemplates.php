@@ -8,7 +8,7 @@ namespace BO\Zmsadmin;
 
 use \BO\Zmsentities\Config as Entity;
 
-class ConfigInfo extends BaseController
+class MailTemplates extends BaseController
 {
     /**
      * @SuppressWarnings(Param)
@@ -73,7 +73,7 @@ class ConfigInfo extends BaseController
 
         return \BO\Slim\Render::withHtml(
             $response,
-            'page/configinfo.twig',
+            'page/mailtemplates.twig',
             array(
                 'title' => 'Konfiguration System',
                 'workstation' => $workstation,
@@ -81,7 +81,7 @@ class ConfigInfo extends BaseController
                 'mailtemplates' => $mailtemplates,
                 'processExample' => $mainProcessExample,
                 'processListExample' => $processListExample,
-                'menuActive' => 'configinfo',
+                'menuActive' => 'mailtemplates',
                 'success' => $success
             )
         );

@@ -1103,6 +1103,34 @@ use \Psr\Http\Message\ResponseInterface;
 )
     ->setName("ConfigUpdate");
 
+
+
+
+
+
+\App::$slim->get(
+    '/mailtemplates/',
+    '\BO\Zmsapi\MailTemplatesGet'
+)
+    ->setName("MailTemplatesGet");
+    
+
+\App::$slim->post(
+    '/mailtemplates/',
+    '\BO\Zmsapi\MailTemplatesUpdate'
+)
+    ->setName("MailTemplatesUpdate");
+        
+    
+
+
+
+
+
+
+
+
+
 /**
  *  @swagger
  *  "/dayoff/{year}/":
