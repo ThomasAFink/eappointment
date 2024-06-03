@@ -24,22 +24,22 @@
         }
     },
     "require-dev": {
-        "phpmd/phpmd": "@stable",
-        "squizlabs/php_codesniffer": "*",
-        "phpunit/phpunit": "^9.5.4",
-        "helmich/phpunit-psr7-assert": "^4.3.0",
-        "phpspec/prophecy-phpunit": "^2.0.0"
+        "phpmd/phpmd": "~2.15.0",
+        "squizlabs/php_codesniffer": "~3.9.0",
+        "phpunit/phpunit": "~9.6.0",
+        "helmich/phpunit-psr7-assert": "~4.4.1",
+        "phpspec/prophecy-phpunit": "~2.2.0",
+        "roave/security-advisories": "dev-latest"
     },
     "require": {
-        "eappointment/mellon": "@dev",
-        "eappointment/zmsentities": "@dev",
-        "eappointment/zmsslim": "@dev",
-        "eappointment/zmsclient": "@dev",
+        "eappointment/mellon": "*@dev",
+        "eappointment/zmsentities": "*@dev",
+        "eappointment/zmsslim": "*@dev",
+        "eappointment/zmsclient": "*@dev",
         "ext-json": ">=1.0",
-        "monolog/monolog": "1.*",
-        "roave/security-advisories": "dev-master",
-        "twig/twig": "3.*",
-        "twig/intl-extra": "^3.4"
+        "monolog/monolog": "~1.27.0",
+        "twig/twig": "~3.10.3",
+        "twig/intl-extra": "~3.10.0"
     },
     "bin": [],
     "autoload": {
@@ -49,10 +49,6 @@
         }
     },
     "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://gitlab+deploy-token-203:RMAsMMns5SocfWcUnktt@gitlab.berlinonline.net/land-intranet/slim-psr7.git"
-        },
         {
             "type": "path",
             "url": "../*",
