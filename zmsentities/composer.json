@@ -14,13 +14,13 @@
         "ext-mbstring": ">=0",
         "ext-json": ">=1.0",
         "ext-pcre": ">=0",
-        "eappointment/mellon": "@dev",
-        "twig/twig": "~3.7.1",
+        "eappointment/mellon": "*@dev",
+        "twig/twig": "~3.10.0",
         "league/json-guard": "~1.0.0",
         "league/html-to-markdown": "~5.1.0",
         "giggsey/libphonenumber-for-php": "~8.13.0",
-        "twig/intl-extra": "~3.7.1",
-        "symfony/translation": "~5.4.24",
+        "twig/intl-extra": "~3.10.0",
+        "symfony/translation": "~6.0.0",
         "symfony/twig-bridge": "~5.4.26"
     },
     "scripts": {

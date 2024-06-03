@@ -1,5 +1,7 @@
 {
     "name": "eappointment/mellon",
+    "version": "1.0.0",
+    "type": "library",
     "description": "Validator for parameters and validation helper",
     "license": "MIT",
     "authors": [
@@ -9,9 +11,9 @@
         }
     ],
     "require-dev": {
-        "phpmd/phpmd": "^2.8.0",
-        "squizlabs/php_codesniffer": "*",
-        "phpunit/phpunit": "^9.5.4",
+        "phpmd/phpmd": "~2.15.0",
+        "squizlabs/php_codesniffer": "~3.10.0",
+        "phpunit/phpunit": "~9.6.0",
         "roave/security-advisories": "dev-latest"
     },
     "require": {
