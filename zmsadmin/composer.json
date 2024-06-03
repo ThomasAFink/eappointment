@@ -32,7 +32,7 @@
         "phpmd/phpmd": "~2.14.0",
         "squizlabs/php_codesniffer": "~3.7.0",
         "phpunit/phpunit": "~9.6.0",
-        "helmich/phpunit-psr7-assert": "~4.3.0",
+        "helmich/phpunit-psr7-assert": "~4.4.1",
         "phpspec/prophecy-phpunit": "~2.0.2",
         "roave/security-advisories": "dev-latest"
     },

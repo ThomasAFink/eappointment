@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf7a9145ffc85b1932bbe8a4b676e4ac",
+    "content-hash": "1f4a8105e5484838841cd86f287d2968",
     "packages": [
         {
             "name": "aronduby/dump",
@@ -126,7 +126,7 @@
             "dist": {
                 "type": "path",
                 "url": "../mellon",
-                "reference": "f094d9dee1c575a15c60de778b9969d9faa545f9"
+                "reference": "6ed618b05d90f2c1f39b9b85c38139f0daf6b103"
             },
             "require": {
                 "ext-json": ">=0",
@@ -232,7 +232,7 @@
             "dist": {
                 "type": "path",
                 "url": "../zmsentities",
-                "reference": "f094d9dee1c575a15c60de778b9969d9faa545f9"
+                "reference": "6ed618b05d90f2c1f39b9b85c38139f0daf6b103"
             },
             "require": {
                 "eappointment/mellon": "*@dev",
@@ -291,7 +291,7 @@
             "dist": {
                 "type": "path",
                 "url": "../zmsslim",
-                "reference": "f094d9dee1c575a15c60de778b9969d9faa545f9"
+                "reference": "6ed618b05d90f2c1f39b9b85c38139f0daf6b103"
             },
             "require": {
                 "eappointment/mellon": "~1.0.0",
@@ -3890,29 +3890,30 @@
         },
         {
             "name": "helmich/phpunit-psr7-assert",
-            "version": "v4.3.0",
+            "version": "v4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/martin-helmich/phpunit-psr7-assert.git",
-                "reference": "dfe594a09f55ea7f87120363d6720ca1a94c0878"
+                "reference": "f35fa69e07cc16977b52805d3abd873cc16747fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/martin-helmich/phpunit-psr7-assert/zipball/dfe594a09f55ea7f87120363d6720ca1a94c0878",
-                "reference": "dfe594a09f55ea7f87120363d6720ca1a94c0878",
+                "url": "https://api.github.com/repos/martin-helmich/phpunit-psr7-assert/zipball/f35fa69e07cc16977b52805d3abd873cc16747fd",
+                "reference": "f35fa69e07cc16977b52805d3abd873cc16747fd",
                 "shasum": ""
             },
             "require": {
                 "helmich/phpunit-json-assert": "^3.4",
-                "php": "^7.2 || ^8.0",
-                "psr/http-message": "^1.0"
+                "php": "^8.0",
+                "psr/http-message": "^1.1 || ^2.0"
             },
             "conflict": {
-                "phpunit/phpunit": "<8.0 || >= 10.0"
+                "phpunit/phpunit": "<8.0 || >= 11.0"
             },
             "require-dev": {
-                "guzzlehttp/psr7": "^1.2",
-                "phpunit/phpunit": "^8.0 || ^9.0"
+                "guzzlehttp/psr7": "^2.4",
+                "mockery/mockery": "^1.4.1",
+                "phpunit/phpunit": "^8.0 || ^9.0 || ^10.0"
             },
             "type": "library",
             "autoload": {
@@ -3933,7 +3934,7 @@
             "description": "PHPUnit assertions for testing PSR7-compliant applications",
             "support": {
                 "issues": "https://github.com/martin-helmich/phpunit-psr7-assert/issues",
-                "source": "https://github.com/martin-helmich/phpunit-psr7-assert/tree/v4.3.0"
+                "source": "https://github.com/martin-helmich/phpunit-psr7-assert/tree/v4.4.1"
             },
             "funding": [
                 {
@@ -3945,7 +3946,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-22T06:27:54+00:00"
+            "time": "2023-07-26T19:04:29+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
