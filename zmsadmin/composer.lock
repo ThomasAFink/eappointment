@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7527513d78cfe70f43ade4fc4ce701ff",
+    "content-hash": "fd8dd2c2bf350812678ffc2fb9cbbdea",
     "packages": [
         {
             "name": "aronduby/dump",
@@ -162,7 +162,7 @@
             "dist": {
                 "type": "path",
                 "url": "../mellon",
-                "reference": "6ed618b05d90f2c1f39b9b85c38139f0daf6b103"
+                "reference": "880343585b44873d37300fbf74c1d1a9d4afba09"
             },
             "require": {
                 "ext-json": ">=0",
@@ -268,7 +268,7 @@
             "dist": {
                 "type": "path",
                 "url": "../zmsentities",
-                "reference": "6ed618b05d90f2c1f39b9b85c38139f0daf6b103"
+                "reference": "880343585b44873d37300fbf74c1d1a9d4afba09"
             },
             "require": {
                 "eappointment/mellon": "*@dev",
@@ -286,9 +286,9 @@
                 "twig/twig": "~3.10.0"
             },
             "require-dev": {
-                "helmich/phpunit-psr7-assert": "~4.3.0",
+                "helmich/phpunit-psr7-assert": "~4.4.1",
                 "league/json-reference": "~1.1.0",
-                "phpmd/phpmd": "@stable",
+                "phpmd/phpmd": "~2.15.0",
                 "phpunit/phpunit": "~9.6.0",
                 "roave/security-advisories": "dev-latest",
                 "squizlabs/php_codesniffer": "~3.7.0",
@@ -327,7 +327,7 @@
             "dist": {
                 "type": "path",
                 "url": "../zmsslim",
-                "reference": "6ed618b05d90f2c1f39b9b85c38139f0daf6b103"
+                "reference": "880343585b44873d37300fbf74c1d1a9d4afba09"
             },
             "require": {
                 "eappointment/mellon": "~1.0.0",
@@ -4700,22 +4700,22 @@
         },
         {
             "name": "phpmd/phpmd",
-            "version": "2.14.1",
+            "version": "2.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmd/phpmd.git",
-                "reference": "442fc2c34edcd5198b442d8647c7f0aec3afabe8"
+                "reference": "74a1f56e33afad4128b886e334093e98e1b5e7c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/442fc2c34edcd5198b442d8647c7f0aec3afabe8",
-                "reference": "442fc2c34edcd5198b442d8647c7f0aec3afabe8",
+                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/74a1f56e33afad4128b886e334093e98e1b5e7c0",
+                "reference": "74a1f56e33afad4128b886e334093e98e1b5e7c0",
                 "shasum": ""
             },
             "require": {
                 "composer/xdebug-handler": "^1.0 || ^2.0 || ^3.0",
                 "ext-xml": "*",
-                "pdepend/pdepend": "^2.15.1",
+                "pdepend/pdepend": "^2.16.1",
                 "php": ">=5.3.9"
             },
             "require-dev": {
@@ -4724,7 +4724,6 @@
                 "ext-simplexml": "*",
                 "gregwar/rst": "^1.0",
                 "mikey179/vfsstream": "^1.6.8",
-                "phpunit/phpunit": "^4.8.36 || ^5.7.27",
                 "squizlabs/php_codesniffer": "^2.9.2 || ^3.7.2"
             },
             "bin": [
@@ -4772,7 +4771,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/phpmd",
                 "issues": "https://github.com/phpmd/phpmd/issues",
-                "source": "https://github.com/phpmd/phpmd/tree/2.14.1"
+                "source": "https://github.com/phpmd/phpmd/tree/2.15.0"
             },
             "funding": [
                 {
@@ -4780,7 +4779,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-09-28T13:07:44+00:00"
+            "time": "2023-12-11T08:22:20+00:00"
         },
         {
             "name": "phpspec/prophecy",

@@ -32,7 +32,7 @@
         "squizlabs/php_codesniffer": "~3.7.0",
         "mockery/mockery": "~0.9.0",
         "phpunit/phpunit": "~9.6.0",
-        "helmich/phpunit-psr7-assert": "~4.3.0",
+        "helmich/phpunit-psr7-assert": "~4.4.1",
         "roave/security-advisories": "dev-latest"
     },
     "require": {

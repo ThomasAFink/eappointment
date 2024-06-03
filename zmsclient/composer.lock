@@ -126,7 +126,7 @@
             "dist": {
                 "type": "path",
                 "url": "../mellon",
-                "reference": "4f39d694732d56ef57f6f3ce55754739e5003c47"
+                "reference": "880343585b44873d37300fbf74c1d1a9d4afba09"
             },
             "require": {
                 "ext-json": ">=0",
@@ -174,7 +174,7 @@
             "dist": {
                 "type": "path",
                 "url": "../zmsentities",
-                "reference": "4f39d694732d56ef57f6f3ce55754739e5003c47"
+                "reference": "880343585b44873d37300fbf74c1d1a9d4afba09"
             },
             "require": {
                 "eappointment/mellon": "*@dev",
@@ -192,9 +192,9 @@
                 "twig/twig": "~3.10.0"
             },
             "require-dev": {
-                "helmich/phpunit-psr7-assert": "~4.3.0",
+                "helmich/phpunit-psr7-assert": "~4.4.1",
                 "league/json-reference": "~1.1.0",
-                "phpmd/phpmd": "@stable",
+                "phpmd/phpmd": "~2.15.0",
                 "phpunit/phpunit": "~9.6.0",
                 "roave/security-advisories": "dev-latest",
                 "squizlabs/php_codesniffer": "~3.7.0",
@@ -233,7 +233,7 @@
             "dist": {
                 "type": "path",
                 "url": "../zmsslim",
-                "reference": "4f39d694732d56ef57f6f3ce55754739e5003c47"
+                "reference": "880343585b44873d37300fbf74c1d1a9d4afba09"
             },
             "require": {
                 "eappointment/mellon": "~1.0.0",

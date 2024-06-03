@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "096331990f1a2e96a0d7cbca0b93ba4a",
+    "content-hash": "1d3a4073a092582c4010a71363855681",
     "packages": [
         {
             "name": "aronduby/dump",
@@ -184,7 +184,7 @@
             "dist": {
                 "type": "path",
                 "url": "../mellon",
-                "reference": "2862d37483d0f9d10d6b58c2f3c9c83723fb2d53"
+                "reference": "880343585b44873d37300fbf74c1d1a9d4afba09"
             },
             "require": {
                 "ext-json": ">=0",
@@ -232,7 +232,7 @@
             "dist": {
                 "type": "path",
                 "url": "../zmsapi",
-                "reference": "2862d37483d0f9d10d6b58c2f3c9c83723fb2d53"
+                "reference": "880343585b44873d37300fbf74c1d1a9d4afba09"
             },
             "require": {
                 "eappointment/mellon": "*@dev",
@@ -247,7 +247,7 @@
             },
             "require-dev": {
                 "aronduby/dump": "*",
-                "helmich/phpunit-psr7-assert": "~4.3.0",
+                "helmich/phpunit-psr7-assert": "~4.4.1",
                 "mockery/mockery": "~0.9.0",
                 "phpmd/phpmd": "~2.14.0",
                 "phpunit/phpunit": "~9.6.0",
@@ -358,11 +358,11 @@
         },
         {
             "name": "eappointment/zmsdb",
-            "version": "dev-experimental-tobias-roave-update",
+            "version": "dev-tobias-php-8-roave-securitiy-advisories",
             "dist": {
                 "type": "path",
                 "url": "../zmsdb",
-                "reference": "2862d37483d0f9d10d6b58c2f3c9c83723fb2d53"
+                "reference": "880343585b44873d37300fbf74c1d1a9d4afba09"
             },
             "require": {
                 "aura/sql": "~4.0.0",
@@ -379,7 +379,7 @@
             },
             "require-dev": {
                 "mockery/mockery": "~0.9.0",
-                "phpmd/phpmd": "~2.14.0",
+                "phpmd/phpmd": "~2.15.0",
                 "phpunit/phpunit": "~9.6.0",
                 "roave/security-advisories": "dev-latest",
                 "squizlabs/php_codesniffer": "~2.9.0"
@@ -442,7 +442,7 @@
             "dist": {
                 "type": "path",
                 "url": "../zmsentities",
-                "reference": "2862d37483d0f9d10d6b58c2f3c9c83723fb2d53"
+                "reference": "880343585b44873d37300fbf74c1d1a9d4afba09"
             },
             "require": {
                 "eappointment/mellon": "*@dev",
@@ -460,9 +460,9 @@
                 "twig/twig": "~3.10.0"
             },
             "require-dev": {
-                "helmich/phpunit-psr7-assert": "~4.3.0",
+                "helmich/phpunit-psr7-assert": "~4.4.1",
                 "league/json-reference": "~1.1.0",
-                "phpmd/phpmd": "@stable",
+                "phpmd/phpmd": "~2.15.0",
                 "phpunit/phpunit": "~9.6.0",
                 "roave/security-advisories": "dev-latest",
                 "squizlabs/php_codesniffer": "~3.7.0",
@@ -501,7 +501,7 @@
             "dist": {
                 "type": "path",
                 "url": "../zmsslim",
-                "reference": "2862d37483d0f9d10d6b58c2f3c9c83723fb2d53"
+                "reference": "880343585b44873d37300fbf74c1d1a9d4afba09"
             },
             "require": {
                 "eappointment/mellon": "~1.0.0",
@@ -4527,22 +4527,22 @@
         },
         {
             "name": "phpmd/phpmd",
-            "version": "2.13.0",
+            "version": "2.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmd/phpmd.git",
-                "reference": "dad0228156856b3ad959992f9748514fa943f3e3"
+                "reference": "74a1f56e33afad4128b886e334093e98e1b5e7c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/dad0228156856b3ad959992f9748514fa943f3e3",
-                "reference": "dad0228156856b3ad959992f9748514fa943f3e3",
+                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/74a1f56e33afad4128b886e334093e98e1b5e7c0",
+                "reference": "74a1f56e33afad4128b886e334093e98e1b5e7c0",
                 "shasum": ""
             },
             "require": {
                 "composer/xdebug-handler": "^1.0 || ^2.0 || ^3.0",
                 "ext-xml": "*",
-                "pdepend/pdepend": "^2.12.1",
+                "pdepend/pdepend": "^2.16.1",
                 "php": ">=5.3.9"
             },
             "require-dev": {
@@ -4551,8 +4551,7 @@
                 "ext-simplexml": "*",
                 "gregwar/rst": "^1.0",
                 "mikey179/vfsstream": "^1.6.8",
-                "phpunit/phpunit": "^4.8.36 || ^5.7.27",
-                "squizlabs/php_codesniffer": "^2.0"
+                "squizlabs/php_codesniffer": "^2.9.2 || ^3.7.2"
             },
             "bin": [
                 "src/bin/phpmd"
@@ -4589,6 +4588,7 @@
             "description": "PHPMD is a spin-off project of PHP Depend and aims to be a PHP equivalent of the well known Java tool PMD.",
             "homepage": "https://phpmd.org/",
             "keywords": [
+                "dev",
                 "mess detection",
                 "mess detector",
                 "pdepend",
@@ -4598,7 +4598,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/phpmd",
                 "issues": "https://github.com/phpmd/phpmd/issues",
-                "source": "https://github.com/phpmd/phpmd/tree/2.13.0"
+                "source": "https://github.com/phpmd/phpmd/tree/2.15.0"
             },
             "funding": [
                 {
@@ -4606,7 +4606,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-09-10T08:44:15+00:00"
+            "time": "2023-12-11T08:22:20+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

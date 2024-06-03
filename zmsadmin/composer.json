@@ -29,7 +29,7 @@
         }
     },
     "require-dev": {
-        "phpmd/phpmd": "~2.14.0",
+        "phpmd/phpmd": "~2.15.0",
         "squizlabs/php_codesniffer": "~3.7.0",
         "phpunit/phpunit": "~9.6.0",
         "helmich/phpunit-psr7-assert": "~4.4.1",
