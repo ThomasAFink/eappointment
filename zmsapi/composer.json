@@ -1,5 +1,6 @@
 {
     "name": "eappointment/zmsapi",
+    "version": "1.0.0",
     "description": "This application offers a REST-like interface for ZMS functions and database access.",
     "license": "EUPL-1.2",
     "authors": [

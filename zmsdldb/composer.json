@@ -1,5 +1,7 @@
 {
     "name": "eappointment/zmsdldb",
+    "version": "1.0.0",
+    "type": "library",
     "description": "Client for DLDB",
     "license": "MIT",
     "authors": [
@@ -10,17 +12,17 @@
     ],
     "config": {
         "platform": {
-            "php": "8.0"
+            "php": "8.0.2"
         },
         "allow-plugins": {
             "php-http/discovery": true
         }
     },
     "require-dev": {
-        "phpmd/phpmd": "@stable",
-        "squizlabs/php_codesniffer": "*",
-        "phpunit/phpunit": "^9.5.4",
-        "seld/jsonlint": "*",
+        "phpmd/phpmd": "~2.13.0",
+        "squizlabs/php_codesniffer": "~3.7.0",
+        "phpunit/phpunit": "~9.6.0",
+        "seld/jsonlint": "~1.9.0",
         "roave/security-advisories": "dev-latest"
     },
     "require": {
@@ -29,15 +31,15 @@
         "ext-mbstring": ">=0",
         "ext-json": ">=1.0",
         "ext-pcre": ">=0",
-        "vanilla/garden-cli": "1.*",
-        "nategood/httpful": "0.*",
-        "twig/twig": "3.*",
-        "eappointment/mellon": "@dev",
-        "eappointment/zmsentities": "@dev",
-        "eappointment/zmsdb": "@dev",
-        "eappointment/zmsslim": "@dev",
-        "eappointment/zmsclient": "@dev",
-        "eappointment/zmsapi": "@dev"
+        "vanilla/garden-cli": "~1.6.3",
+        "nategood/httpful": "~0.3.0",
+        "twig/twig": "~3.10.0",
+        "eappointment/mellon": "*@dev",
+        "eappointment/zmsentities": "*@dev",
+        "eappointment/zmsdb": "*@dev",
+        "eappointment/zmsslim": "*@dev",
+        "eappointment/zmsclient": "*@dev",
+        "eappointment/zmsapi": "*@dev"
     },
     "bin": [
         "bin/dldbget"

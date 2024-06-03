@@ -1,5 +1,7 @@
 {
     "name": "eappointment/zmsslim",
+    "version": "1.0.0",
+    "type": "library",
     "description": "Basic configuration for a slim framework",
     "license": "MIT",
     "authors": [
@@ -10,30 +12,30 @@
     ],
     "config": {
         "platform": {
-            "php": "8.0"
+            "php": "8.0.2"
         }
     },
     "require": {
         "php": ">=7.3.0",
         "ext-json": "*",
         "ext-posix": "*",
-        "slim/slim": "4.*",
-        "twig/twig": "3.*",
-        "monolog/monolog": "1.*",
-        "slim/twig-view": "3.*",
-        "slim/http-cache": "1.*",
-        "eappointment/mellon": "*@dev",
-        "symfony/translation": "^5.2",
-        "symfony/twig-bridge": "^5.2",
-        "stevenmaguire/oauth2-keycloak": "^4.0",
-        "slim/psr7": "^1.5",
-        "tracy/tracy": "^2.9"
+        "slim/slim": "~4.13.0",
+        "twig/twig": "~3.10.3",
+        "monolog/monolog": "~1.27.0",
+        "slim/twig-view": "~3.4.0",
+        "slim/http-cache": "~1.1.0",
+        "eappointment/mellon": "~1.0.0",
+        "symfony/translation": "~5.4.40",
+        "symfony/twig-bridge": "~5.4.40",
+        "stevenmaguire/oauth2-keycloak": "~4.0.0",
+        "slim/psr7": "~1.6.0",
+        "tracy/tracy": "~2.10.7"
     },
     "require-dev": {
-        "phpmd/phpmd": "@stable",
-        "squizlabs/php_codesniffer": "*",
-        "phpunit/phpunit": "^9.5.4",
-        "helmich/phpunit-psr7-assert": "^4.3.0"
+        "phpmd/phpmd": "~2.15.0",
+        "squizlabs/php_codesniffer": "~3.10.0",
+        "phpunit/phpunit": "~9.6.0",
+        "helmich/phpunit-psr7-assert": "~4.4.1"
     },
     "scripts": {
         "command": "bin/configure"

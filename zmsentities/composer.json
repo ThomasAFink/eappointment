@@ -1,5 +1,7 @@
 {
     "name": "eappointment/zmsentities",
+    "version": "1.0.0",
+    "type": "library",
     "description": "Entity definitions for eappoinment",
     "license": "MIT",
     "authors": [
@@ -20,8 +22,8 @@
         "league/html-to-markdown": "~5.1.0",
         "giggsey/libphonenumber-for-php": "~8.13.0",
         "twig/intl-extra": "~3.10.0",
-        "symfony/translation": "~6.0.0",
-        "symfony/twig-bridge": "~5.4.26"
+        "symfony/translation": "~5.4.40",
+        "symfony/twig-bridge": "~5.4.40"
     },
     "scripts": {
         "command": "bin/configure"
