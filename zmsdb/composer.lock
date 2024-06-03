@@ -184,7 +184,7 @@
             "dist": {
                 "type": "path",
                 "url": "../mellon",
-                "reference": "062a71a802b804674b897aebec52aba322c56162"
+                "reference": "2862d37483d0f9d10d6b58c2f3c9c83723fb2d53"
             },
             "require": {
                 "ext-json": ">=0",
@@ -232,26 +232,27 @@
             "dist": {
                 "type": "path",
                 "url": "../zmsapi",
-                "reference": "062a71a802b804674b897aebec52aba322c56162"
+                "reference": "2862d37483d0f9d10d6b58c2f3c9c83723fb2d53"
             },
             "require": {
-                "eappointment/mellon": "@dev",
-                "eappointment/zmsclient": "@dev",
-                "eappointment/zmsdb": "@dev",
-                "eappointment/zmsdldb": "@dev",
-                "eappointment/zmsentities": "@dev",
-                "eappointment/zmsslim": "@dev",
-                "league/climate": "^3.2",
-                "monolog/monolog": "1.*",
-                "ulrichsg/getopt-php": "^2.3"
+                "eappointment/mellon": "*@dev",
+                "eappointment/zmsclient": "*@dev",
+                "eappointment/zmsdb": "*@dev",
+                "eappointment/zmsdldb": "*@dev",
+                "eappointment/zmsentities": "*@dev",
+                "eappointment/zmsslim": "*@dev",
+                "league/climate": "~3.8.0",
+                "monolog/monolog": "~1.27.0",
+                "ulrichsg/getopt-php": "~2.4.0"
             },
             "require-dev": {
                 "aronduby/dump": "*",
-                "helmich/phpunit-psr7-assert": "^4.3.0",
-                "mockery/mockery": "^0.9.4",
-                "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "^9.5.4",
-                "squizlabs/php_codesniffer": "*"
+                "helmich/phpunit-psr7-assert": "~4.3.0",
+                "mockery/mockery": "~0.9.0",
+                "phpmd/phpmd": "~2.14.0",
+                "phpunit/phpunit": "~9.6.0",
+                "roave/security-advisories": "dev-latest",
+                "squizlabs/php_codesniffer": "~3.7.0"
             },
             "type": "library",
             "autoload": {
@@ -303,7 +304,7 @@
             "dist": {
                 "type": "path",
                 "url": "../zmsclient",
-                "reference": "22028c9475cd7641b605e1ef1b8e1178ef887af4"
+                "reference": "e1b46ea509b68c8ce99b8f13a7d493e0afa466bc"
             },
             "require": {
                 "aronduby/dump": "~0.9.0",
@@ -361,7 +362,7 @@
             "dist": {
                 "type": "path",
                 "url": "../zmsdldb",
-                "reference": "062a71a802b804674b897aebec52aba322c56162"
+                "reference": "2862d37483d0f9d10d6b58c2f3c9c83723fb2d53"
             },
             "require": {
                 "eappointment/mellon": "*@dev",
@@ -428,7 +429,7 @@
             "dist": {
                 "type": "path",
                 "url": "../zmsentities",
-                "reference": "062a71a802b804674b897aebec52aba322c56162"
+                "reference": "2862d37483d0f9d10d6b58c2f3c9c83723fb2d53"
             },
             "require": {
                 "eappointment/mellon": "*@dev",
@@ -487,7 +488,7 @@
             "dist": {
                 "type": "path",
                 "url": "../zmsslim",
-                "reference": "062a71a802b804674b897aebec52aba322c56162"
+                "reference": "2862d37483d0f9d10d6b58c2f3c9c83723fb2d53"
             },
             "require": {
                 "eappointment/mellon": "~1.0.0",
