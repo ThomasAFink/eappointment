@@ -10,11 +10,6 @@
             "email": "mathias.fischer@berlinonline.de"
         }
     ],
-    "config": {
-        "platform": {
-            "php": "8.0.2"
-        }
-    },
     "require": {
         "php": ">=7.3.0",
         "ext-json": "*",

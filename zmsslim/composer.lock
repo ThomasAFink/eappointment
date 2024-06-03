@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bd18b52643a6b9310079966214d48d20",
+    "content-hash": "7040413b8fd2ec944f18ca03b69b8c7a",
     "packages": [
         {
             "name": "eappointment/mellon",
@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "../mellon",
-                "reference": "062a71a802b804674b897aebec52aba322c56162"
+                "reference": "4cb0b622a78b784406c96aa560de269ba186bc69"
             },
             "require": {
                 "ext-json": ">=0",
@@ -5069,8 +5069,5 @@
         "ext-posix": "*"
     },
     "platform-dev": [],
-    "platform-overrides": {
-        "php": "8.0.2"
-    },
     "plugin-api-version": "2.6.0"
 }
