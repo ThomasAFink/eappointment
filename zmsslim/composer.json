@@ -23,7 +23,7 @@
         "symfony/translation": "~5.4.40",
         "symfony/twig-bridge": "~5.4.40",
         "stevenmaguire/oauth2-keycloak": "~4.0.0",
-        "slim/psr7": "~1.6.0",
+        "slim/psr7": "~1.7.0",
         "tracy/tracy": "~2.10.7"
     },
     "require-dev": {
