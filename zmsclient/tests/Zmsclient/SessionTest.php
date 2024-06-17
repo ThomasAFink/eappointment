@@ -10,6 +10,8 @@ class SessionTest extends Base
 
     public function testBasic()
     {
+        static::$http_client->readGetResult('/initialize-session-test');
+
         $sessionHandler = $this->createSession();
 
         $sessionHandler->open('/', self::SESSION_NAME);

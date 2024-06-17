@@ -198,6 +198,8 @@ class HttpTest extends Base
 
     public function testMeta()
     {
+        static::$http_client->readGetResult('/initialize-config-test');
+
         $result = static::$http_client->readGetResult('/config/');
         $this->assertTrue($result->getMeta() instanceof \BO\Zmsentities\Metaresult);
     }
