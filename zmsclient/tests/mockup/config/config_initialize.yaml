@@ -1,4 +1,3 @@
-# initialize_scenario.yaml
 request:
   method: GET
   path: "/initialize-config-test"
@@ -11,4 +10,4 @@ control:
     - not_started
     - configbasic
     - configtoken
-    newState: configtoken # Sets the initial state to 'not_started'
+    newState: configtoken
