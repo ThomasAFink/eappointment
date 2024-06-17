@@ -55,6 +55,11 @@ class Result
      */
     public function setResponse(ResponseInterface $response)
     {
+
+        echo "#########################";
+        echo $response->getBody();
+        echo "--------------------------";
+
         $body = Validator::value((string)$response->getBody())->isJson();
         $this->testMeta($body, $response);
         $result = $body->getValue();
@@ -212,7 +217,7 @@ class Result
         $data = $this->getData();
         $idList = array();
         foreach ($data as $item) {
-            if (array_key_exists('id', $item)) {
+            if (property_exists($item, 'id')) {
                 $idList[] = $item['id'];
             }
         }

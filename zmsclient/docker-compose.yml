@@ -17,9 +17,8 @@ services:
     image: registry.gitlab.com/eappointment/php-base:8.0-base
     volumes:
       - type: bind
-        source: "."
-        target: "/app"
-        consistency: cached
+        source: ".."
+        target: "/zms"
 #      - type: bind
 #        source: "../zmsslim"
 #        target: "/zmsslim"
@@ -28,4 +27,4 @@ services:
 #        target: "/zmsentities"
     environment:
       ZMS_API_URL: http://mockup:8083
-    working_dir: /app
+    working_dir: /zms
