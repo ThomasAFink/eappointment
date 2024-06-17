@@ -1,0 +1,15 @@
+# initialize_scenario.yaml
+request:
+  method: GET
+  path: "/initialize-mail-test"
+response:
+  statusCode: 200
+control:
+  scenario:
+    name: mail            # Sets the scenario name 'mail'
+    requiredState:
+    - not_started
+    - deleted
+    - created
+    - listed
+    newState: not_started # Sets the initial state to 'not_started'

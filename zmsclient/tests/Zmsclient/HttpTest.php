@@ -145,6 +145,8 @@ class HttpTest extends Base
 
     public function testMails()
     {
+        static::$http_client->readGetResult('/initialize-mail-test');
+
         $now = new \DateTimeImmutable('2016-04-01 08:00');
         $entity = Mail::createExample();
         $confirmedProcess = static::$http_client->readGetResult('/scope/141/process/'. $now->format('Y-m-d') .'/')
@@ -164,8 +166,6 @@ class HttpTest extends Base
             $result = static::$http_client->readPostResult('/mails/', $entity, ['resolveReferences' => 0]);
 
         $entity = $result->getEntity();
-        print_r($entity);
-        /*
         $this->assertTrue($entity instanceof Mail);
         $mailId = $entity->id;
 
@@ -177,7 +177,6 @@ class HttpTest extends Base
         $entity = $result->getEntity();
         $this->assertTrue($entity instanceof Mail);
         $this->writeTestLogout(static::$http_client);
-        */
     }
 
     public function testHtml()
@@ -189,6 +188,8 @@ class HttpTest extends Base
 
     public function testToken()
     {
+        static::$http_client->readGetResult('/initialize-config-test');
+
         $this->createHttpClient(null, false);
         $result = static::$http_client->readGetResult('/config/', null, 'a9b215f1-e460-490c-8a0b-6d42c274d5e4');
         $entity = $result->getEntity();
