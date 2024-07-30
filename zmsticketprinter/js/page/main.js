@@ -7,14 +7,16 @@ class View extends BaseView {
         super(element);
         this.bindPublicMethods('setInterval', 'reloadPage');
         console.log('Redirect to home url every 30 seconds');
-        $(function() {this.setInterval});
+
+        this.setReloadInterval();
     }
 
     reloadPage () {
+        console.log('reloading')
         window.location.href = this.getUrl('/home/');
     }
 
-    setInterval () {
+    setReloadInterval () {
         var reloadTime = window.bo.zmsticketprinter.reloadInterval;
         setInterval(this.reloadPage, reloadTime * 1000);
     }
