@@ -15,7 +15,6 @@ class View extends BaseView {
 
         $.get( this.getUrl('/home/'), function( response ) {
             $("body").html($($.parseHTML(response)));
-            alert( "Load was performed." );
         });
     }
 
