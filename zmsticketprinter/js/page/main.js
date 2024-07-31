@@ -12,7 +12,12 @@ class View extends BaseView {
 
     reloadPage () {
         console.log('reload...')
-        window.location.href = this.getUrl('/home/');
+
+        $.get( this.getUrl('/home/'), function( response ) {
+            var domNodes = $($.parseHTML(response));
+            $( "body" ).html( domNodes.find('body') );
+            alert( "Load was performed." );
+        });
     }
 
     setReloadInterval () {
