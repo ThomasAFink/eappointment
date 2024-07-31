@@ -14,8 +14,7 @@ class View extends BaseView {
         console.log('reload...')
 
         $.get( this.getUrl('/home/'), function( response ) {
-            var domNodes = $($.parseHTML(response));
-            $( "body" ).html( domNodes.find('body') );
+            $("html").html(response);
             alert( "Load was performed." );
         });
     }
