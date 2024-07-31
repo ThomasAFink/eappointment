@@ -5,7 +5,7 @@ class View extends BaseView {
 
     constructor (element) {
         super(element);
-        this.bindPublicMethods('setInterval', 'reloadPage');
+        this.bindPublicMethods('setReloadInterval', 'reloadPage');
         console.log('Redirect to home url every 30 seconds.');
         this.setReloadInterval();
     }
