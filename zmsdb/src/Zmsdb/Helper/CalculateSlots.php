@@ -217,23 +217,28 @@ class CalculateSlots
     {
         $this->log("Checking if tables 'slot' and 'slot_hiera' are locked: $stage");
         error_log("\nChecking if tables 'slot' and 'slot_hiera' are locked: $stage");
+        echo("\nChecking if tables 'slot' and 'slot_hiera' are locked: $stage");
     
         try {
             $pdo->query("SELECT 1 FROM slot LIMIT 1");
             $this->log("'slot' table is not locked.");
             error_log("\n'slot' table is not locked.");
+            echo("\n'slot' table is not locked.");
         } catch (\PDOException $e) {
             $this->log("'slot' table is locked or inaccessible: " . $e->getMessage());
             error_log("\n'slot' table is locked or inaccessible: " . $e->getMessage());
+            echo("\n'slot' table is locked or inaccessible: " . $e->getMessage());
         }
     
         try {
             $pdo->query("SELECT 1 FROM slot_hiera LIMIT 1");
             $this->log("'slot_hiera' table is not locked.");
             error_log("'slot_hiera' table is not locked.");
+            echo("'slot_hiera' table is not locked.");
         } catch (\PDOException $e) {
             $this->log("'slot_hiera' table is locked or inaccessible: " . $e->getMessage());
             error_log("'slot_hiera' table is locked or inaccessible: " . $e->getMessage());
+            echo("'slot_hiera' table is locked or inaccessible: " . $e->getMessage());
         }
     }
     
