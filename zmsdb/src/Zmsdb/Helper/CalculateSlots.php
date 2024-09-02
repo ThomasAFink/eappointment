@@ -184,11 +184,56 @@ class CalculateSlots
         $slotQuery = new \BO\Zmsdb\Slot();
         $pdo = \BO\Zmsdb\Connection\Select::getWriteConnection();
         $pdo->exec('SET SESSION innodb_lock_wait_timeout=600');
-        if ($slotQuery->deleteSlotsOlderThan($now)) {
-            \BO\Zmsdb\Connection\Select::writeCommit();
-            $this->log("Deleted old slots successfully");
-            $slotQuery->writeOptimizedSlotTables();
-            $this->log("Optimized tables successfully");
+    
+        // Log current locks before attempting to delete
+        $this->log("Before attempting to delete old slots:");
+        $this->logCurrentLocks($pdo);
+    
+        try {
+            if ($slotQuery->deleteSlotsOlderThan($now)) {
+                \BO\Zmsdb\Connection\Select::writeCommit();
+                $this->log("Deleted old slots successfully");
+    
+                // Log current locks after successful deletion
+                $this->log("After successfully deleting old slots:");
+                $this->logCurrentLocks($pdo);
+    
+                $slotQuery->writeOptimizedSlotTables();
+                $this->log("Optimized tables successfully");
+            }
+        } catch (\Exception $exception) {
+            $this->log("Error during deletion: " . $exception->getMessage());
+    
+            // Log current locks after an error occurs
+            $this->log("After error during deletion attempt:");
+            $this->logCurrentLocks($pdo);
+    
+            throw $exception;
         }
     }
+    
+    private function logCurrentLocks($pdo)
+    {
+        // Log information about locks
+        $this->log("Logging current locks and transactions");
+    
+        $locks = $pdo->query("SELECT * FROM information_schema.INNODB_LOCKS")->fetchAll();
+        if (!empty($locks)) {
+            foreach ($locks as $lock) {
+                $this->log("Lock ID: {$lock['LOCK_ID']}, Locked Table: {$lock['TABLE_NAME']}, Lock Mode: {$lock['LOCK_MODE']}, Locked By Transaction: {$lock['LOCK_TRX_ID']}");
+            }
+        } else {
+            $this->log("No current locks found.");
+        }
+    
+        // Log information about transactions waiting for locks
+        $waitingTransactions = $pdo->query("SELECT * FROM information_schema.INNODB_LOCK_WAITS")->fetchAll();
+        if (!empty($waitingTransactions)) {
+            foreach ($waitingTransactions as $wait) {
+                $this->log("Waiting Transaction: {$wait['REQUESTING_TRX_ID']} is waiting for lock held by: {$wait['BLOCKING_TRX_ID']}");
+            }
+        } else {
+            $this->log("No lock waits found.");
+        }
+    }    
 }
