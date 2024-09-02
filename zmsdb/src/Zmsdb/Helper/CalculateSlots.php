@@ -180,60 +180,61 @@ class CalculateSlots
 
     public function deleteOldSlots(\DateTimeInterface $now)
     {
-        $this->log("Maintenance: Delete slots older than ". $now->format('Y-m-d'));
+        $this->log("Maintenance: Delete slots older than " . $now->format('Y-m-d'));
+        error_log("\nMaintenance: Delete slots older than " . $now->format('Y-m-d'));
         $slotQuery = new \BO\Zmsdb\Slot();
         $pdo = \BO\Zmsdb\Connection\Select::getWriteConnection();
         $pdo->exec('SET SESSION innodb_lock_wait_timeout=600');
     
-        // Log current locks before attempting to delete
-        $this->log("Before attempting to delete old slots:");
-        $this->logCurrentLocks($pdo);
+        // Check if the tables are locked before attempting to delete
+        $this->checkTableLocks($pdo, 'Before deletion');
     
         try {
             if ($slotQuery->deleteSlotsOlderThan($now)) {
                 \BO\Zmsdb\Connection\Select::writeCommit();
                 $this->log("Deleted old slots successfully");
+                error_log("\nDeleted old slots successfully");
     
-                // Log current locks after successful deletion
-                $this->log("After successfully deleting old slots:");
-                $this->logCurrentLocks($pdo);
+                // Check if the tables are locked after deletion
+                $this->checkTableLocks($pdo, 'After successful deletion');
     
                 $slotQuery->writeOptimizedSlotTables();
                 $this->log("Optimized tables successfully");
+                error_log("\nOptimized tables successfully");
             }
         } catch (\Exception $exception) {
             $this->log("Error during deletion: " . $exception->getMessage());
+            error_log("\nError during deletion: " . $exception->getMessage());
     
-            // Log current locks after an error occurs
-            $this->log("After error during deletion attempt:");
-            $this->logCurrentLocks($pdo);
+            // Check if the tables are locked after an error occurs
+            $this->checkTableLocks($pdo, 'After error during deletion attempt');
     
             throw $exception;
         }
     }
     
-    private function logCurrentLocks($pdo)
+    private function checkTableLocks($pdo, $stage)
     {
-        // Log information about locks
-        $this->log("Logging current locks and transactions");
+        $this->log("Checking if tables 'slot' and 'slot_hiera' are locked: $stage");
+        error_log("\nChecking if tables 'slot' and 'slot_hiera' are locked: $stage");
     
-        $locks = $pdo->query("SELECT * FROM information_schema.INNODB_LOCKS")->fetchAll();
-        if (!empty($locks)) {
-            foreach ($locks as $lock) {
-                $this->log("Lock ID: {$lock['LOCK_ID']}, Locked Table: {$lock['TABLE_NAME']}, Lock Mode: {$lock['LOCK_MODE']}, Locked By Transaction: {$lock['LOCK_TRX_ID']}");
-            }
-        } else {
-            $this->log("No current locks found.");
+        try {
+            $pdo->query("SELECT 1 FROM slot LIMIT 1");
+            $this->log("'slot' table is not locked.");
+            error_log("\n'slot' table is not locked.");
+        } catch (\PDOException $e) {
+            $this->log("'slot' table is locked or inaccessible: " . $e->getMessage());
+            error_log("\n'slot' table is locked or inaccessible: " . $e->getMessage());
         }
     
-        // Log information about transactions waiting for locks
-        $waitingTransactions = $pdo->query("SELECT * FROM information_schema.INNODB_LOCK_WAITS")->fetchAll();
-        if (!empty($waitingTransactions)) {
-            foreach ($waitingTransactions as $wait) {
-                $this->log("Waiting Transaction: {$wait['REQUESTING_TRX_ID']} is waiting for lock held by: {$wait['BLOCKING_TRX_ID']}");
-            }
-        } else {
-            $this->log("No lock waits found.");
+        try {
+            $pdo->query("SELECT 1 FROM slot_hiera LIMIT 1");
+            $this->log("'slot_hiera' table is not locked.");
+            error_log("'slot_hiera' table is not locked.");
+        } catch (\PDOException $e) {
+            $this->log("'slot_hiera' table is locked or inaccessible: " . $e->getMessage());
+            error_log("'slot_hiera' table is locked or inaccessible: " . $e->getMessage());
         }
-    }    
+    }
+    
 }
