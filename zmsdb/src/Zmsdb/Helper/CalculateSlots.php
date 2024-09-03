@@ -185,15 +185,13 @@ class CalculateSlots
         $pdo = \BO\Zmsdb\Connection\Select::getWriteConnection();
         $pdo->exec('SET SESSION innodb_lock_wait_timeout=600');
     
-        // Check if the tables are locked before attempting to delete
         $this->checkTableLocks($pdo, 'Before deletion');
     
         try {
             if ($slotQuery->deleteSlotsOlderThan($now)) {
                 \BO\Zmsdb\Connection\Select::writeCommit();
                 $this->log("Deleted old slots successfully");
-    
-                // Check if the tables are locked after deletion
+
                 $this->checkTableLocks($pdo, 'After successful deletion');
     
                 $slotQuery->writeOptimizedSlotTables();
@@ -202,7 +200,7 @@ class CalculateSlots
         } catch (\Exception $exception) {
             $this->log("Error during deletion: " . $exception->getMessage());
     
-            // Check if the tables are locked after an error occurs
+
             $this->checkTableLocks($pdo, 'After error during deletion attempt');
     
             throw $exception;
@@ -211,7 +209,7 @@ class CalculateSlots
     
     private function checkTableLocks($pdo, $stage)
     {
-        $this->log("Checking if tables 'slot' and 'slot_hiera' are locked: $stage");
+        $this->log("Checking if tables 'slot' and 'slot_hiera' for locks: $stage");
     
         try {
             $pdo->query("SELECT 1 FROM slot LIMIT 1");
