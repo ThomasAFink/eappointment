@@ -219,14 +219,22 @@ class CalculateSlots
         echo("\nLogging InnoDB lock status: $stage\n");
     
         try {
-            $stmt = $pdo->query("SHOW STATUS");
+            // Fetch and log the 'Innodb_row_lock_current_waits' status
+            $stmt = $pdo->query("SHOW STATUS LIKE 'Innodb_row_lock_current_waits'");
+            $statusVariable = $stmt->fetch(\PDO::FETCH_ASSOC);
+    
+            $this->log("Innodb_row_lock_current_waits: " . $statusVariable['Value']);
+            echo("\nInnodb_row_lock_current_waits: " . $statusVariable['Value'] . "\n");
+    
+            // Fetch and log the full InnoDB status
+            $stmt = $pdo->query("SHOW ENGINE INNODB STATUS");
             $status = $stmt->fetch(\PDO::FETCH_ASSOC);
     
-            $this->log("STATUS: \n" . json_encode($status));
-            echo("\nSTATUS: \n" . json_encode($status) . "\n");
+            $this->log("InnoDB STATUS: \n" . $status['Status']);
+            echo("\nInnoDB STATUS: \n" . $status['Status'] . "\n");
         } catch (\PDOException $e) {
-            $this->log("Failed to retrieve InnoDB status: " . $e->getMessage());
-            echo("\nFailed to retrieve InnoDB status: " . $e->getMessage() . "\n");
+            $this->log("Failed to retrieve InnoDB status or lock status: " . $e->getMessage());
+            echo("\nFailed to retrieve InnoDB status or lock status: " . $e->getMessage() . "\n");
         }
     }
     
