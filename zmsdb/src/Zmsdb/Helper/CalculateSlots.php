@@ -187,7 +187,7 @@ class CalculateSlots
         $pdo->exec('SET SESSION innodb_lock_wait_timeout=600');
     
         // Log lock information before attempting to delete
-        $this->checkTableLocks($pdo, 'Before deletion');
+        $this->logInnoDBLockStatus($pdo, 'Before deletion');
     
         try {
             if ($slotQuery->deleteSlotsOlderThan($now)) {
@@ -196,7 +196,7 @@ class CalculateSlots
                 error_log("\nDeleted old slots successfully\n");
     
                 // Log lock information after successful deletion
-                $this->checkTableLocks($pdo, 'After successful deletion');
+                $this->logInnoDBLockStatus($pdo, 'After successful deletion');
     
                 $slotQuery->writeOptimizedSlotTables();
                 $this->log("Optimized tables successfully");
@@ -207,42 +207,10 @@ class CalculateSlots
             error_log("\nError during deletion: " . $exception->getMessage() . "\n");
     
             // Log lock information after an error occurs
-            $this->checkTableLocks($pdo, 'After error during deletion attempt');
+            $this->logInnoDBLockStatus($pdo, 'After error during deletion attempt');
     
             throw $exception;
         }
-    }
-    
-    private function checkTableLocks($pdo, $stage)
-    {
-        $this->log("Checking if tables 'slot' and 'slot_hiera' are locked: $stage");
-        error_log("\nChecking if tables 'slot' and 'slot_hiera' are locked: $stage\n");
-        echo("\nChecking if tables 'slot' and 'slot_hiera' are locked: $stage\n");
-    
-        try {
-            $pdo->query("SELECT 1 FROM slot LIMIT 1");
-            $this->log("'slot' table is not locked.");
-            error_log("\n'slot' table is not locked.\n");
-            echo("\n'slot' table is not locked.\n");
-        } catch (\PDOException $e) {
-            $this->log("'slot' table is locked or inaccessible: " . $e->getMessage());
-            error_log("\n'slot' table is locked or inaccessible: " . $e->getMessage() . "\n");
-            echo("\n'slot' table is locked or inaccessible: " . $e->getMessage() . "\n");
-        }
-    
-        try {
-            $pdo->query("SELECT 1 FROM slot_hiera LIMIT 1");
-            $this->log("'slot_hiera' table is not locked.");
-            error_log("\n'slot_hiera' table is not locked.\n");
-            echo("\n'slot_hiera' table is not locked.\n");
-        } catch (\PDOException $e) {
-            $this->log("'slot_hiera' table is locked or inaccessible: " . $e->getMessage());
-            error_log("\n'slot_hiera' table is locked or inaccessible: " . $e->getMessage() . "\n");
-            echo("\n'slot_hiera' table is locked or inaccessible: " . $e->getMessage() . "\n");
-        }
-    
-        // Log detailed InnoDB lock information
-        $this->logInnoDBLockStatus($pdo, $stage);
     }
     
     private function logInnoDBLockStatus($pdo, $stage)
@@ -252,12 +220,12 @@ class CalculateSlots
         echo("\nLogging InnoDB lock status: $stage\n");
     
         try {
-            $stmt = $pdo->query("SHOW ENGINE INNODB STATUS");
+            $stmt = $pdo->query("SHOW STATUS");
             $status = $stmt->fetch(\PDO::FETCH_ASSOC);
     
-            $this->log("InnoDB STATUS: \n" . $status['Status']);
-            error_log("\nInnoDB STATUS: \n" . $status['Status'] . "\n");
-            echo("\nInnoDB STATUS: \n" . $status['Status'] . "\n");
+            $this->log("STATUS: \n" . $status['Status']);
+            error_log("\nSTATUS: \n" . $status['Status'] . "\n");
+            echo("\nSTATUS: \n" . $status['Status'] . "\n");
         } catch (\PDOException $e) {
             $this->log("Failed to retrieve InnoDB status: " . $e->getMessage());
             error_log("\nFailed to retrieve InnoDB status: " . $e->getMessage() . "\n");
