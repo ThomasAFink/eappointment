@@ -186,7 +186,7 @@ class CalculateSlots
         $pdo = \BO\Zmsdb\Connection\Select::getWriteConnection();
         $pdo->exec('SET SESSION innodb_lock_wait_timeout=600');
     
-        // Check if the tables are locked before attempting to delete
+        // Log lock information before attempting to delete
         $this->checkTableLocks($pdo, 'Before deletion');
     
         try {
@@ -195,7 +195,7 @@ class CalculateSlots
                 $this->log("Deleted old slots successfully");
                 error_log("\nDeleted old slots successfully");
     
-                // Check if the tables are locked after deletion
+                // Log lock information after successful deletion
                 $this->checkTableLocks($pdo, 'After successful deletion');
     
                 $slotQuery->writeOptimizedSlotTables();
@@ -206,7 +206,7 @@ class CalculateSlots
             $this->log("Error during deletion: " . $exception->getMessage());
             error_log("\nError during deletion: " . $exception->getMessage());
     
-            // Check if the tables are locked after an error occurs
+            // Log lock information after an error occurs
             $this->checkTableLocks($pdo, 'After error during deletion attempt');
     
             throw $exception;
@@ -240,6 +240,30 @@ class CalculateSlots
             error_log("'slot_hiera' table is locked or inaccessible: " . $e->getMessage());
             echo("'slot_hiera' table is locked or inaccessible: " . $e->getMessage());
         }
+    
+        // Log detailed InnoDB lock information
+        $this->logInnoDBLockStatus($pdo, $stage);
     }
+    
+    private function logInnoDBLockStatus($pdo, $stage)
+    {
+        $this->log("Logging InnoDB lock status: $stage");
+        error_log("\nLogging InnoDB lock status: $stage");
+        echo("\nLogging InnoDB lock status: $stage");
+    
+        try {
+            $stmt = $pdo->query("SHOW ENGINE INNODB STATUS");
+            $status = $stmt->fetch(\PDO::FETCH_ASSOC);
+    
+            $this->log("InnoDB STATUS: \n" . $status['Status']);
+            error_log("\nInnoDB STATUS: \n" . $status['Status']);
+            echo("\nInnoDB STATUS: \n" . $status['Status']);
+        } catch (\PDOException $e) {
+            $this->log("Failed to retrieve InnoDB status: " . $e->getMessage());
+            error_log("\nFailed to retrieve InnoDB status: " . $e->getMessage());
+            echo("\nFailed to retrieve InnoDB status: " . $e->getMessage());
+        }
+    }
+    
     
 }
