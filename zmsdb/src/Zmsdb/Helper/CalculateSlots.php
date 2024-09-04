@@ -216,19 +216,16 @@ class CalculateSlots
     private function logInnoDBLockStatus($pdo, $stage)
     {
         $this->log("Logging InnoDB lock status: $stage");
-        error_log("\nLogging InnoDB lock status: $stage\n");
         echo("\nLogging InnoDB lock status: $stage\n");
     
         try {
             $stmt = $pdo->query("SHOW STATUS");
             $status = $stmt->fetch(\PDO::FETCH_ASSOC);
     
-            $this->log("STATUS: \n" . $status['Status']);
-            error_log("\nSTATUS: \n" . $status['Status'] . "\n");
-            echo("\nSTATUS: \n" . $status['Status'] . "\n");
+            $this->log("STATUS: \n" . json_encode($status));
+            echo("\nSTATUS: \n" . json_encode($status) . "\n");
         } catch (\PDOException $e) {
             $this->log("Failed to retrieve InnoDB status: " . $e->getMessage());
-            error_log("\nFailed to retrieve InnoDB status: " . $e->getMessage() . "\n");
             echo("\nFailed to retrieve InnoDB status: " . $e->getMessage() . "\n");
         }
     }
