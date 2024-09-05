@@ -411,14 +411,47 @@ class Slot extends Base
 
     public function deleteSlotsOlderThan(\DateTimeInterface $dateTime)
     {
+        // Step 1: Select all slotIDs that match the deletion criteria
+        $selectSlotIdsQuery = '
+            SELECT slotID 
+            FROM slot 
+            WHERE (year < :year) 
+                OR (year = :year AND month < :month) 
+                OR (year = :year AND month = :month AND day < :day)
+        ';
+    
+        // Step 2: Execute the query to fetch the slot IDs
+        $pdo = \BO\Zmsdb\Connection\Select::getWriteConnection();
+        $stmt = $pdo->prepare($selectSlotIdsQuery);
+        $stmt->execute([
+            'year' => $dateTime->format('Y'),
+            'month' => $dateTime->format('m'),
+            'day' => $dateTime->format('d'),
+        ]);
+        $slotIds = $stmt->fetchAll(\PDO::FETCH_COLUMN);
+    
+        // Step 3: Log the slot IDs
+        if (!empty($slotIds)) {
+            $this->log("Slot IDs to be deleted: " . implode(', ', $slotIds));
+            error_log("\nSlot IDs to be deleted: " . implode(', ', $slotIds) . "\n");
+        } else {
+            $this->log("No slots found for deletion.");
+            error_log("\nNo slots found for deletion.\n");
+        }
+    
+        // Step 4: Perform the deletion
         $status = $this->perform(Query\Slot::QUERY_DELETE_SLOT_OLD, [
             'year' => $dateTime->format('Y'),
             'month' => $dateTime->format('m'),
             'day' => $dateTime->format('d'),
         ]);
+    
+        // Step 5: Clean up orphaned records in slot_hiera
         $status = ($status && $this->perform(Query\Slot::QUERY_DELETE_SLOT_HIERA));
+    
         return $status;
     }
+    
 
     /**
      * This function is for debugging
