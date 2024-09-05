@@ -336,6 +336,7 @@ class Slot extends Base
 
     public function deleteSlotProcessOnSlot($scopeID = null)
     {
+        echo $scopeID;
         if ($scopeID) {
             $this->perform(
                 Query\Slot::QUERY_DELETE_SLOT_PROCESS_CANCELLED
