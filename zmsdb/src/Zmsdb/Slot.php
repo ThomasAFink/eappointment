@@ -411,53 +411,14 @@ class Slot extends Base
 
     public function deleteSlotsOlderThan(\DateTimeInterface $dateTime)
     {
-        // Select the slot IDs that will be deleted
-        $slotIdsToDelete = $this->selectSlotIdsToDelete($dateTime);
-    
-        // Log the slot IDs
-        if (!empty($slotIdsToDelete)) {
-            $this->logSlotIds($slotIdsToDelete);
-        }
-    
-        // Perform the deletion
         $status = $this->perform(Query\Slot::QUERY_DELETE_SLOT_OLD, [
             'year' => $dateTime->format('Y'),
             'month' => $dateTime->format('m'),
             'day' => $dateTime->format('d'),
         ]);
-    
-        // Perform the deletion of slot hierarchy entries
         $status = ($status && $this->perform(Query\Slot::QUERY_DELETE_SLOT_HIERA));
-        
         return $status;
     }
-    
-    private function selectSlotIdsToDelete(\DateTimeInterface $dateTime)
-    {
-        $query = '
-            SELECT slotID 
-            FROM slot 
-            WHERE (year < :year) 
-                OR (year = :year AND month < :month) 
-                OR (year = :year AND month = :month AND day < :day)
-        ';
-    
-        $stmt = $this->pdo->prepare($query);
-        $stmt->execute([
-            'year' => $dateTime->format('Y'),
-            'month' => $dateTime->format('m'),
-            'day' => $dateTime->format('d'),
-        ]);
-    
-        return $stmt->fetchAll(\PDO::FETCH_COLUMN);
-    }
-    
-    private function logSlotIds(array $slotIds)
-    {
-        $this->log("Slot IDs to be deleted: " . implode(', ', $slotIds));
-        error_log("\nSlot IDs to be deleted: " . implode(', ', $slotIds) . "\n");
-    }
-    
 
     /**
      * This function is for debugging
