@@ -432,10 +432,8 @@ class Slot extends Base
     
         // Step 3: Log the slot IDs
         if (!empty($slotIds)) {
-            $this->log("Slot IDs to be deleted: " . implode(', ', $slotIds));
             error_log("\nSlot IDs to be deleted: " . implode(', ', $slotIds) . "\n");
         } else {
-            $this->log("No slots found for deletion.");
             error_log("\nNo slots found for deletion.\n");
         }
     
