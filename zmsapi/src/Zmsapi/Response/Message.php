@@ -108,7 +108,8 @@ class Message implements \JsonSerializable
         return $this->statuscode;
     }
 
-    public function jsonSerialize(): mixed
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
     {
         $schema = $this->request->getUri()->getScheme();
         $schema .= '://';
