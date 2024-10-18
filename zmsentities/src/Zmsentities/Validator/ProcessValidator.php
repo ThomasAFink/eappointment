@@ -47,7 +47,7 @@ class ProcessValidator
         $valid = $unvalid->isNumber(
             "Eine gültige Vorgangsnummer ist in der Regel eine sechsstellige Nummer wie '123456'"
         );
-        $length = strlen((string)$valid->getValue());
+        $length = strlen((string)$valid->getValue() ?? '');
         if ($length) {
             $valid->isGreaterThan(100000, "Eine Vorgangsnummer besteht aus mindestens 6 Ziffern");
             $valid->isLowerEqualThan(99999999999, "Eine Vorgangsnummer besteht aus maximal 11 Ziffern");
@@ -61,7 +61,7 @@ class ProcessValidator
     public function validateAuthKey(Unvalidated $unvalid, callable $setter, callable $isRequiredCallback = null): self
     {
         $valid = $unvalid->isString();
-        $length = strlen($valid->getValue());
+        $length = strlen($valid->getValue() ?? '');
         if ($length || ($isRequiredCallback && $isRequiredCallback())) {
             $valid
                 ->isBiggerThan(4, "Es müssen mindestens 4 Zeichen eingegeben werden.")
@@ -74,7 +74,7 @@ class ProcessValidator
     public function validateMail(Unvalidated $unvalid, callable $setter, callable $isRequiredCallback = null): self
     {
         $valid = $unvalid->isString();
-        $length = strlen($valid->getUnvalidated());
+        $length = strlen($valid->getUnvalidated() ?? '');
         $process = $this->getProcess();
 
         /*
@@ -113,7 +113,7 @@ class ProcessValidator
     public function validateName(Unvalidated $unvalid, callable $setter): self
     {
         $valid = $unvalid->isString();
-        $length = strlen($valid->getValue());
+        $length = strlen($valid->getValue() ?? '');
         if ($length || $this->getProcess()->isWithAppointment()) {
             $valid
                 ->isBiggerThan(2, "Es muss ein aussagekräftiger Name eingegeben werden")
@@ -126,7 +126,7 @@ class ProcessValidator
     public function validateTelephone(Unvalidated $unvalid, callable $setter, callable $isRequiredCallback = null):self
     {
         $valid = $unvalid->isString();
-        $length = strlen($valid->getValue());
+        $length = strlen($valid->getValue() ?? '');
 
         try {
             $phoneNumberUtil = \libphonenumber\PhoneNumberUtil::getInstance();
@@ -169,7 +169,7 @@ class ProcessValidator
     public function validateText(Unvalidated $unvalid, callable $setter): self
     {
         $valid = $unvalid->isString();
-        $length = strlen($valid->getUnvalidated());
+        $length = strlen($valid->getUnvalidated() ?? '');
         if ($length) {
             $valid->isSmallerThan(500, "Die Anmerkung sollte 500 Zeichen nicht überschreiten");
             $this->getCollection()->validatedAction($valid, $setter);
