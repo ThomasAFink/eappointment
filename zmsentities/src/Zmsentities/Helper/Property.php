@@ -56,6 +56,7 @@ class Property implements \ArrayAccess
             ->get();
     }
 
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): never
     {
         throw new \BO\Zmsentities\Exception\PropertyOffsetReadOnly(
@@ -63,6 +64,7 @@ class Property implements \ArrayAccess
         );
     }
 
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): never
     {
         throw new \BO\Zmsentities\Exception\PropertyOffsetReadOnly(__CLASS__ . "[$offset] is readonly");

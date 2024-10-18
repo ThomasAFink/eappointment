@@ -295,18 +295,21 @@ abstract class Base implements \Countable, \ArrayAccess, \JsonSerializable
         return $this->__isset($offset);
     }
 
+    #[\ReturnTypeWillChange]
     final public function offsetGet($offset)
     {
         return $this->__get($offset);
     }
 
-    final public function offsetSet($offset, $value) : Base
+    #[\ReturnTypeWillChange]
+    final public function offsetSet($offset, $value) 
     {
         $this->__set($offset, $value);
         return $this;
     }
 
-    final public function offsetUnset($offset) : Base
+    #[\ReturnTypeWillChange]
+    final public function offsetUnset($offset) 
     {
         $this->__unset($offset);
         return $this;

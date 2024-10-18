@@ -68,6 +68,7 @@ class Entity extends \ArrayObject implements \JsonSerializable
         $this->addData($input);
     }
 
+    #[\ReturnTypeWillChange]
     public function getUnflattenedArray($input)
     {
         if (!$input instanceof UnflattedArray) {
@@ -88,6 +89,7 @@ class Entity extends \ArrayObject implements \JsonSerializable
     /**
      * This method is private, because the used library should not be used outside of this class!
      */
+    #[\ReturnTypeWillChange]
     private function getValidator($locale = 'de_DE', $resolveLevel = 0)
     {
         $jsonSchema = self::readJsonSchema()->withResolvedReferences($resolveLevel);
@@ -104,7 +106,7 @@ class Entity extends \ArrayObject implements \JsonSerializable
      *
      * @return Boolean
      */
-    public function isValid($resolveLevel = 0)
+    public function isValid($resolveLevel = 0): bool
     {
         $validator = $this->getValidator('de_DE', $resolveLevel = 0);
         return $validator->isValid();
@@ -116,7 +118,7 @@ class Entity extends \ArrayObject implements \JsonSerializable
      * @throws \BO\Zmsentities\Expcetion\SchemaValidation
      * @return Boolean
      */
-    public function testValid($locale = 'de_DE', $resolveLevel = 0)
+    public function testValid($locale = 'de_DE', $resolveLevel = 0): bool
     {
         $validator = $this->getValidator($locale, $resolveLevel);
         $validator = $this->registerExtensions($validator);
@@ -253,7 +255,7 @@ class Entity extends \ArrayObject implements \JsonSerializable
         return $entity;
     }
 
-    public function hasId()
+    public function hasId(): bool
     {
         return (false !== $this->getId()) ? true : false;
     }
