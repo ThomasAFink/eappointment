@@ -158,7 +158,7 @@ jobs:
 
       - name: Install Composer Dependencies
         run: |
-          modules=('zmsclient')
+          modules=('zmsclient', 'zmsslim')
           for module in "${modules[@]}"; do
             echo "Installing Composer dependencies for $module"
             (cd "$module" && composer install --no-progress --prefer-dist --optimize-autoloader)
@@ -174,6 +174,13 @@ jobs:
           pwd
           ls -la
 
+      - name: List vendor directory in zmsclient
+        run: |
+          ls -la /home/runner/work/eappointment/eappointment/zmsclient/vendor
+
+      - name: List contents of zmsslim
+        run: |
+          ls -la /home/runner/work/eappointment/eappointment/zmsslim/src/Slim
 
       - name: Install Docker Compose
         run: |
