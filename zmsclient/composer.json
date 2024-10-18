@@ -47,8 +47,7 @@
     "autoload": {
         "psr-4": {
             "BO\\Zmsclient\\": "src/Zmsclient/",
-            "BO\\Zmsclient\\Tests\\": "tests/Zmsclient/",
-            "BO\\Slim\\": "vendor/eappointment/zmsslim/src/Slim/"
+            "BO\\Zmsclient\\Tests\\": "tests/Zmsclient/"
         }
     },
     "require-dev": {
