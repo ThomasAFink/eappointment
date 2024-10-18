@@ -10,7 +10,7 @@
     ],
     "config": {
         "platform": {
-            "php": "8.0"
+            "php": "8.1"
         },
         "allow-plugins": {
             "php-http/discovery": true
@@ -24,13 +24,13 @@
         "roave/security-advisories": "dev-latest"
     },
     "require": {
-        "php": ">=7.3.0",
+        "php": ">=8.1.0",
         "ext-curl": ">=0",
         "ext-mbstring": ">=0",
         "ext-json": ">=1.0",
         "ext-pcre": ">=0",
         "vanilla/garden-cli": "1.*",
-        "nategood/httpful": "0.*",
+        "nategood/httpful": "^1.0.0",
         "twig/twig": "3.*",
         "eappointment/mellon": "@dev",
         "eappointment/zmsentities": "@dev",
@@ -39,6 +39,8 @@
         "eappointment/zmsclient": "@dev",
         "eappointment/zmsapi": "@dev"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "bin": [
         "bin/dldbget"
     ],
@@ -60,6 +62,11 @@
             "options": {
                 "symlink": true
             }
+        },
+        {
+            "type": "composer",
+            "url": "https://repo.packagist.org",
+            "canonical": false
         }
     ]
 }

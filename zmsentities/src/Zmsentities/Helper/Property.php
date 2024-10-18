@@ -43,25 +43,27 @@ class Property implements \ArrayAccess
         return $default;
     }
 
+    #[\ReturnTypeWillChange]
     public function offsetGet($property)
     {
         return $this->__get($property);
     }
 
+    #[\ReturnTypeWillChange]
     public function offsetExists($property)
     {
         return null !== $this->__get($property)
             ->get();
     }
 
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): never
     {
         throw new \BO\Zmsentities\Exception\PropertyOffsetReadOnly(
             __CLASS__ . "[$offset] is readonly, could not set " . htmlspecialchars($value)
         );
     }
 
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): never
     {
         throw new \BO\Zmsentities\Exception\PropertyOffsetReadOnly(__CLASS__ . "[$offset] is readonly");
     }

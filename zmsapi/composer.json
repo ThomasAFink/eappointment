@@ -19,7 +19,7 @@
     ],
     "config": {
         "platform": {
-            "php": "8.0"
+            "php": "8.1"
         },
         "allow-plugins": {
             "php-http/discovery": true
@@ -40,7 +40,7 @@
         "eappointment/zmsdldb": "@dev",
         "eappointment/zmsdb": "@dev",
         "eappointment/zmsentities": "@dev",
-        "monolog/monolog": "1.*",
+        "monolog/monolog": "^1.25",
         "ulrichsg/getopt-php": "^2.3",
         "league/climate": "^3.2"
     },

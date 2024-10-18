@@ -75,11 +75,12 @@ class ValidString extends Valid
     public function isBiggerThan($size, $message = 'too small')
     {
         $this->validated = true;
-        if (strlen($this->value) < $size) {
+        // Ensure value is a string before calling strlen
+        if ($this->value === null || strlen((string)$this->value) < $size) {
             $this->setFailure($message);
         }
         return $this;
-    }
+    }    
 
     /**
      * Allow only strings with a length smaller than the given value
@@ -92,9 +93,10 @@ class ValidString extends Valid
     public function isSmallerThan($size, $message = 'too big')
     {
         $this->validated = true;
-        if (strlen($this->value) > $size) {
+        // Ensure value is a string before calling strlen
+        if ($this->value === null || strlen((string)$this->value) > $size) {
             $this->setFailure($message);
         }
         return $this;
-    }
+    }    
 }

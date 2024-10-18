@@ -10,16 +10,16 @@
     ],
     "config": {
         "platform": {
-            "php": "8.0"
+            "php": "8.1"
         }
     },
     "require": {
-        "php": ">=7.3.0",
+        "php": ">=8.1.0",
         "ext-json": "*",
         "ext-posix": "*",
         "slim/slim": "4.*",
         "twig/twig": "3.*",
-        "monolog/monolog": "1.*",
+        "monolog/monolog": "^1.25",
         "slim/twig-view": "3.*",
         "slim/http-cache": "1.*",
         "eappointment/mellon": "@dev",

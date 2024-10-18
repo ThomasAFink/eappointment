@@ -76,6 +76,7 @@ class EventLog extends Schema\Entity
         return parent::addData($mergeData);
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $clone = clone $this;

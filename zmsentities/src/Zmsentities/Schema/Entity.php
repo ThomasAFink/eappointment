@@ -60,6 +60,7 @@ class Entity extends \ArrayObject implements \JsonSerializable
         }
     }
 
+    #[\ReturnTypeWillChange]
     public function exchangeArray($input)
     {
         parent::exchangeArray($this->getDefaults());
@@ -183,6 +184,7 @@ class Entity extends \ArrayObject implements \JsonSerializable
         return $this;
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $schema = array(

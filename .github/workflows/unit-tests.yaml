@@ -24,27 +24,27 @@ jobs:
       matrix:
         include:
           - module: zmsadmin
-            php_version: "8.0"
+            php_version: "8.1"
           - module: zmscalldisplay
-            php_version: "8.0"
+            php_version: "8.1"
           - module: zmsdldb
-            php_version: "8.0"
+            php_version: "8.1"
           - module: zmsentities
-            php_version: "8.0"
+            php_version: "8.1"
           - module: zmsmessaging
-            php_version: "8.0"
+            php_version: "8.1"
           - module: zmsslim
-            php_version: "8.0"
+            php_version: "8.1"
           - module: zmsstatistic
-            php_version: "8.0"
+            php_version: "8.1"
           - module: zmsticketprinter
-            php_version: "8.0"
+            php_version: "8.1"
 
 
   zmsapi-test:
     runs-on: ubuntu-latest
     container:
-      image: "registry.gitlab.com/eappointment/php-base:8.0-dev"
+      image: "registry.gitlab.com/eappointment/php-base:8.1-dev"
     services:
       mariadb:
         image: mariadb:10.6
@@ -96,7 +96,7 @@ jobs:
   zmsdb-test:
     runs-on: ubuntu-latest
     container:
-      image: "registry.gitlab.com/eappointment/php-base:8.0-dev"
+      image: "registry.gitlab.com/eappointment/php-base:8.1-dev"
     services:
       mariadb:
         image: mariadb:10.6
@@ -153,7 +153,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.0"
+          php-version: "8.1"
           extensions: mbstring, xml, ctype, iconv, intl, pdo_mysql
           coverage: xdebug
 

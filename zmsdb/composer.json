@@ -1,6 +1,6 @@
 {
     "name": "eappointment/zmsdb",
-    "description": " This repository offers functions to access the ZMS database structure and converts the data to the defined ZMS entities.",
+    "description": "This repository offers functions to access the ZMS database structure and converts the data to the defined ZMS entities.",
     "license": "EUPL-1.2",
     "authors": [
         {
@@ -15,15 +15,23 @@
             "options": {
                 "symlink": true
             }
+        },
+        {
+            "type": "composer",
+            "url": "https://repo.packagist.org",
+            "canonical": false
         }
     ],
     "config": {
         "platform": {
-            "php": "8.0"
+            "php": "8.1"
+        },
+        "allow-plugins": {
+            "php-http/discovery": true
         }
     },
     "require": {
-        "php": ">=7.3.0",
+        "php": ">=8.1.0",
         "ext-mbstring": ">=0",
         "ext-intl": "*",
         "ext-json": ">=1.0",
@@ -35,6 +43,8 @@
         "aura/sql": "^4",
         "solution10/sql": "^1.3"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "bin": [
         "bin/archiveStatisticData",
         "bin/anonymizeStatisticData",
