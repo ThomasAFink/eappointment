@@ -57,6 +57,7 @@ class GraphQLInterpreter implements \JsonSerializable
         return $this;
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return $this->data;

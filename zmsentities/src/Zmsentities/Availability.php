@@ -737,6 +737,7 @@ class Availability extends Schema\Entity
      * Delete cache on changes
      *
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($index, $value)
     {
         $this->startTimeCache = null;
