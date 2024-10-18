@@ -158,7 +158,7 @@ jobs:
 
       - name: Install Composer Dependencies
         run: |
-          modules=('zmsclient', 'zmsslim')
+          modules=('zmsslim', 'zmsclient')
           for module in "${modules[@]}"; do
             echo "Installing Composer dependencies for $module"
             (cd "$module" && composer install --no-progress --prefer-dist --optimize-autoloader)
