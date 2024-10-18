@@ -169,15 +169,11 @@ jobs:
           sudo chmod +x /usr/local/bin/docker-compose
           docker-compose --version
 
-      - name: List contents of vendor/eappointment and check Application.php
+      - name: Show current directory
         run: |
-          ls -la /home/runner/work/eappointment/eappointment
-          ls -la /home/runner/work/eappointment/eappointment/zmsclient/zmsclient/vendor/
-          if [ -f /home/runner/work/eappointment/eappointment/zmsclient/zmsclient/vendor/eappointment/zmsslim/src/Slim/Application.php ]; then
-            echo "Application.php exists"
-          else
-            echo "Application.php does not exist"
-          fi
+          pwd
+          ls -la
+
 
       - name: Install Docker Compose
         run: |
