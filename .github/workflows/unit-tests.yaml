@@ -172,7 +172,7 @@ jobs:
       - name: List contents of vendor/eappointment and check Application.php
         run: |
           ls -la /home/runner/work/eappointment
-          ls -la /home/runner/work/eappointment/zmsclient/zmsclient/vendor/eappointment
+          ls -la /home/runner/work/eappointment/zmsclient/zmsclient/vendor/
           if [ -f /home/runner/eappointment/work/zmsclient/zmsclient/vendor/eappointment/zmsslim/src/Slim/Application.php ]; then
             echo "Application.php exists"
           else
