@@ -122,11 +122,11 @@
         },
         {
             "name": "eappointment/mellon",
-            "version": "dev-main",
+            "version": "dev-chore-zms-2964-composer-update",
             "dist": {
                 "type": "path",
                 "url": "../mellon",
-                "reference": "3b53777853798ec388f9fa2f2d42b1310ff3062c"
+                "reference": "fa429242b7da90bac2d97be7ebd9b9f4e3761671"
             },
             "require": {
                 "ext-json": ">=0",
@@ -170,11 +170,11 @@
         },
         {
             "name": "eappointment/zmsentities",
-            "version": "dev-main",
+            "version": "dev-chore-zms-2964-composer-update",
             "dist": {
                 "type": "path",
                 "url": "../zmsentities",
-                "reference": "134d2811065032cea089cf8776c8417ef58855ab"
+                "reference": "fa429242b7da90bac2d97be7ebd9b9f4e3761671"
             },
             "require": {
                 "eappointment/mellon": "@dev",
@@ -228,11 +228,11 @@
         },
         {
             "name": "eappointment/zmsslim",
-            "version": "dev-main",
+            "version": "dev-chore-zms-2964-composer-update",
             "dist": {
                 "type": "path",
                 "url": "../zmsslim",
-                "reference": "68179b21e915e565dba890251fca3c126c263de9"
+                "reference": "fa429242b7da90bac2d97be7ebd9b9f4e3761671"
             },
             "require": {
                 "eappointment/mellon": "@dev",
