@@ -171,6 +171,7 @@ jobs:
 
       - name: List contents of vendor/eappointment and check Application.php
         run: |
+          docker-compose exec -T test ls -la /
           echo "Listing contents of vendor/eappointment:"
           docker-compose up -d
           docker-compose exec -T test ls -la /app/vendor/eappointment
