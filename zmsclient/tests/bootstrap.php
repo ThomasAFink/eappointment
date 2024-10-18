@@ -14,9 +14,6 @@ if (file_exists(APP_PATH . '/../vendor/autoload.php')) {
 } else {
     define('VENDOR_PATH', APP_PATH . '/../../../');
 }
-
-echo 'VENDOR_PATH: ' . VENDOR_PATH;
-
 require_once(VENDOR_PATH . '/autoload.php');
 require(APP_PATH . '/config.php');
 
