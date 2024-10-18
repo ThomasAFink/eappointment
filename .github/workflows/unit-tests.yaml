@@ -93,6 +93,7 @@ jobs:
             -v --colors=never --coverage-text --coverage-html public/_tests/coverage/ --log-junit \
             public/_tests/junit.xml
 
+
   zmsdb-test:
     runs-on: ubuntu-latest
     container:
@@ -142,8 +143,6 @@ jobs:
             public/_tests/junit.xml
 
 
-
-
   zmsclient-test:
     runs-on: ubuntu-latest
     steps:
@@ -169,6 +168,14 @@ jobs:
           sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
           sudo chmod +x /usr/local/bin/docker-compose
           docker-compose --version
+
+      - name: List contents of vendor/eappointment and check Application.php
+        run: |
+          echo "Listing contents of vendor/eappointment:"
+          docker-compose up -d
+          docker-compose exec -T test ls -la /app/vendor/eappointment
+          echo "Checking if /app/vendor/eappointment/zmsslim/src/Slim/Application.php exists"
+          docker-compose exec -T test sh -c "[ -f /app/vendor/eappointment/zmsslim/src/Slim/Application.php ] && echo 'File exists' || echo 'File does not exist'"
 
       - name: Install Docker Compose
         run: |
