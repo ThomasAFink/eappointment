@@ -175,6 +175,7 @@ class ReportClientOrganisationTest extends Base
             );
 
             $this->assertStringContainsString('xlsx', $response->getHeaderLine('Content-Disposition'));
+            error_log(json_encode($response->getBody()));
             $this->assertLessThan(11, abs(6774 - strlen((string) $response->getBody())));
         });
     }
